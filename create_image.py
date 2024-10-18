@@ -1,3 +1,5 @@
+# The purpose of this script is to create a self-contained firmware image file that can be flashed directly with esptool.py at address 0x0
+#
 # This can be easily added to your PlatformIO project by adding the following to your `platformio.ini` file:
 # extra_scripts = create_image.py
 Import("env")
