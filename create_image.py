@@ -26,6 +26,9 @@ elif "c6" in board:
     esptool_board = "esp32c6"
 elif "h2" in board:
     esptool_board = "esp32h2"
+elif "c5" in board:
+    esptool_board = "esp32c5"
+    bootloader_offset = "0x2000 "
 elif "esp32" in board:
     esptool_board = "esp32"
     bootloader_offset = "0x1000 "
@@ -36,7 +39,7 @@ build_commands.append("/usr/bin/python3 " + home_directory + "/.platformio/packa
     bootloader_offset + program_root + "/.pio/build/" + environment + "/bootloader.bin \
     0x8000 " + program_root + "/.pio/build/" + environment + "/partitions.bin \
     0xe000 " + home_directory + "/.platformio/packages/framework-arduinoespressif32/tools/partitions/boot_app0.bin \
-    0x10000 " + program_root + "/.pio/build/" + environment + "/firmware.bin -o " + program_root + "/image.bin")
+    0x10000 " + program_root + "/.pio/build/" + environment + "/firmware.bin -o " + program_root + "/" + environment + "_image.bin")
 
 env.AddCustomTarget(
     name="CreateImage",
